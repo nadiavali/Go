@@ -13,6 +13,7 @@ func main() {
 	fmt.Println(rand.Intn(3))
 	fmt.Println(math.Pi)
 	print()  // Only to realise how to call a function in go
+	fmt.Println(swap("World", "hello"))
 
 }
 
@@ -22,4 +23,8 @@ func add(x int,y int)int{
 
 func print() {
 	fmt.Println(add(42, 78))
+}
+
+func swap(a, b string)(string, string){
+	return b, a
 }
