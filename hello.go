@@ -14,6 +14,8 @@ func main() {
 	fmt.Println(math.Pi)
 	print()  // Only to realise how to call a function in go
 	fmt.Println(swap("World", "hello"))
+	fmt.Println(spliting(20))
+	fmt.Println(globalNonGlobalVars())
 
 }
 
@@ -28,3 +30,22 @@ func print() {
 func swap(a, b string)(string, string){
 	return b, a
 }
+
+
+// return values and types schuld be spcified here
+func spliting(number int)(right_side, left_side int){
+	right_side = number * 4 / 9
+	left_side= number - right_side
+	return // naked return(no argas)
+
+} 
+
+
+var Go, to, bed bool = true, false, true
+
+func globalNonGlobalVars()(bool, bool){
+	var i bool = to
+	var b bool = Go
+	return i , b
+}
+
