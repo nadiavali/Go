@@ -16,6 +16,7 @@ func main() {
 	fmt.Println(swap("World", "hello"))
 	fmt.Println(spliting(20))
 	fmt.Println(globalNonGlobalVars())
+	fmt.Println(sqrt(4), sqrt(-4))
 
 }
 
@@ -42,10 +43,19 @@ func spliting(number int)(right_side, left_side int){
 
 
 var Go, to, bed bool = true, false, true
+//this is not working out of func(non-declaration statement outside function body)
+//man := Woman
 
-func globalNonGlobalVars()(bool, bool){
+func globalNonGlobalVars()(bool, bool, string){
 	var i bool = to
 	var b bool = Go
-	return i , b
+	bed := "bed"
+	return i , b, bed
 }
 
+func sqrt(x float64) string {
+	if x < 0 {
+		return sqrt(-x) + "i"
+	}
+	return fmt.Sprint(math.Sqrt(x))
+}
