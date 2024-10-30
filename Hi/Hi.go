@@ -8,6 +8,8 @@ import (
 func main(){
 	week()
 	Greet()
+	DearPointer()
+	CallCollection()
 }
 
 func week() {
@@ -39,4 +41,37 @@ func Greet(){
 	default:
 		fmt.Println("Good Night", name)
 	}
+}
+
+
+/* Python uses references, not pointers in Go I should handle the memory */
+
+func DearPointer() {
+	x := 67
+	i := &x
+	
+	pow(&x) // This modifies x by squaring it
+	/*pow(i) : This does the same as above because i and &x point to the same location
+	This means x is squared twice*/
+	
+	fmt.Println("This is i:", *i) // Dereference i to get the value of x
+	fmt.Println("This is x:", x)   // Print x directly, which holds the modified value
+}
+
+func pow(p *int) {
+	*p = *p * *p // Dereference p to access and modify the value it points to
+}
+
+
+type collection struct{
+	x string
+	y string
+	z string
+}
+
+func CallCollection(){
+	c := collection{"I","love","go"}
+	c.x = "everyone"
+	c.y = c.y + "s"
+	fmt.Println(c)
 }
