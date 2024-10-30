@@ -10,6 +10,7 @@ func main(){
 	Greet()
 	DearPointer()
 	CallCollection()
+	inttpe()
 }
 
 func week() {
@@ -73,5 +74,30 @@ func CallCollection(){
 	c := collection{"I","love","go"}
 	c.x = "everyone"
 	c.y = c.y + "s"
+	p := &c
+	(*p).z = "GO" // equal to p.z
 	fmt.Println(c)
+	v := collection{}
+	fmt.Println(v)
+}
+
+
+
+type Vertex struct {
+	m int
+	n interface{}
+
+}
+
+func inttpe(){
+
+	var(
+	v1 = Vertex{1, 2}  // has type Vertex
+	v2 = Vertex{n: "3"}  
+	v3 = Vertex{}     
+	p  = &Vertex{1, 65.0005} // has type *Vertex
+	)
+	p.n = "I can be any typey"
+	
+	fmt.Println(v1,*p,v2,v3)
 }
