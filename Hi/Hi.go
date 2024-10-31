@@ -11,6 +11,7 @@ func main(){
 	DearPointer()
 	CallCollection()
 	inttpe()
+	SliceCap()
 }
 
 func week() {
@@ -100,4 +101,26 @@ func inttpe(){
 	p.n = "I can be any typey"
 	
 	fmt.Println(v1,*p,v2,v3)
+}
+
+
+
+
+
+func SliceCap() {
+	// Original slice
+	original := []int{2, 3, 5, 7, 11, 13}
+	fmt.Printf("Original slice: len=%d cap=%d %v\n", len(original), cap(original), original)
+
+	// Create a sub-slice
+	sub := original[2:]
+	/*In Go, once you reduce a slice’s capacity by slicing off part of the beginning,
+	 you can’t extend it back to its original capacity because the original beginning 
+	 of the underlying array is no longer accessible through the slice*/
+	//original = original[3:] be care fulllll
+	fmt.Printf("Sub-slice: len=%d cap=%d %v\n", len(sub), cap(sub), sub)
+	fmt.Println(original)
+
+	// Access the original slice to see all elements
+	fmt.Printf("Full original slice remains accessible: %v\n", original)
 }
